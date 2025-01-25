@@ -18,4 +18,17 @@ public enum TypeTissue {
     TypeTissue(String nomAffiche) {
         this.nomAffiche = nomAffiche;
     }
+
+    public String getNomAffiche() {
+        return nomAffiche;
+    }
+
+    public static TypeTissue fromNomAffiche(String nomAffiche) {
+        for (TypeTissue type : values()) {
+            if (type.getNomAffiche().equals(nomAffiche)) {
+                return type;
+            }
+        }
+        return AUTRE;
+    }
 }

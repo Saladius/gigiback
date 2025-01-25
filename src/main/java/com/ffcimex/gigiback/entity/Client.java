@@ -3,6 +3,7 @@ package com.ffcimex.gigiback.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,7 +30,10 @@ public class Client {
     private Panier panier;
 
     @OneToMany(mappedBy = "client")
-    private List<Commande> commandes;
+    private List<Commande> commandes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "client")
+    private List<ClientTissue> clientTissues = new ArrayList<>();
 
     @Column(precision = 10, scale = 2)
     private BigDecimal totalGain;

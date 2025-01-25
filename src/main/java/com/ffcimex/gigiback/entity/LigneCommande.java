@@ -30,10 +30,6 @@ public class LigneCommande {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal sousTotal;
 
-    public BigDecimal getSousTotal() {
-        return sousTotal;
-    }
-
     @PrePersist
     @PreUpdate
     private void calculateSousTotal() {

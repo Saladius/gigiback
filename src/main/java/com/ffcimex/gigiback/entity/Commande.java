@@ -47,8 +47,8 @@ public class Commande {
     @Column(nullable = false)
     private boolean paye = false;
 
-//    @OneToMany(mappedBy = "commande", cascade = CascadeType.PERSIST)
-//    private List<Avoir> avoirs;
+    @OneToMany(mappedBy = "commande", cascade = CascadeType.PERSIST)
+    private List<Avoir> avoirs = new ArrayList<>();
     
     @Column(precision = 10, scale = 2)
     private BigDecimal montantPaye;

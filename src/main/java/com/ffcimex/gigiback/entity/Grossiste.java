@@ -2,6 +2,7 @@ package com.ffcimex.gigiback.entity;
 
 import lombok.Data;
 import jakarta.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,5 +28,6 @@ public class Grossiste {
     private String email;
 
     @OneToMany(mappedBy = "grossiste")
-    private List<CommandeGrossiste> commandes;
+    private List<CommandeGrossiste> commandesGrossiste = new ArrayList<>();
+
 }

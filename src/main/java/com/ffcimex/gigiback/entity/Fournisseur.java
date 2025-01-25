@@ -3,6 +3,7 @@ package com.ffcimex.gigiback.entity;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "fournisseur")
@@ -11,6 +12,7 @@ public class Fournisseur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_fournisseur")
     private Long idFournisseur;
 
     private String nom;
@@ -36,6 +38,6 @@ public class Fournisseur {
         joinColumns = @JoinColumn(name = "fournisseur_id"),
         inverseJoinColumns = @JoinColumn(name = "tissue_id")
     )
-    private List<Tissue> tissues;
+    private List<Tissue> tissues = new ArrayList<>();
 
 }

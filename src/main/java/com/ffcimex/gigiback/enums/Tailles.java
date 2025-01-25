@@ -20,5 +20,13 @@ public enum Tailles {
     public String getDescription() {
         return description;
     }
-}
 
+    public static Tailles fromDescription(String description) {
+        for (Tailles taille : values()) {
+            if (taille.getDescription().equals(description)) {
+                return taille;
+            }
+        }
+        return M;
+    }
+}

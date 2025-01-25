@@ -4,6 +4,7 @@ import com.ffcimex.gigiback.enums.TypeTissue;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,8 +36,8 @@ public class Tissue {
     private TypeTissue typeTissue;
 
     @ManyToMany(mappedBy = "tissues")
-    private List<Fournisseur> fournisseurs;
+    private List<Fournisseur> fournisseurs = new ArrayList<>();
 
     @OneToMany(mappedBy = "tissue")
-    private List<LigneCommandeTissue> lignesCommandeTissue;
+    private List<LigneCommandeTissue> lignesCommandeTissue = new ArrayList<>();
 }

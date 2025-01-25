@@ -4,6 +4,7 @@ import com.ffcimex.gigiback.enums.MoisAnnee;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -26,5 +27,6 @@ public class TrancheAge {
     private int valFixe;
 
     @ManyToMany(mappedBy = "trancheAges")
-    private List<Produit> produits;
+    private List<Produit> produits = new ArrayList<>();
+
 }

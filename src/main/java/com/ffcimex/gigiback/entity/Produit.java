@@ -4,6 +4,7 @@ import com.ffcimex.gigiback.enums.Tailles;
 import lombok.Data;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,10 +24,10 @@ public class Produit {
     private String pathTableauMesure;
 
     @OneToMany(mappedBy = "produit", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private List<Image> images;
+    private List<Image> images = new ArrayList<>();
 
     @OneToMany(mappedBy = "produit", cascade = CascadeType.PERSIST)
-    private List<TissueParProduit> tissueParProduits;
+    private List<TissueParProduit> tissueParProduits = new ArrayList<>();
 
     //@OneToMany(mappedBy = "produit", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     //private List<OffreSpecial> offreSpecials;
@@ -65,5 +66,5 @@ public class Produit {
     private List<TrancheAge> trancheAges;
 
     @OneToMany(mappedBy = "produit", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<StockTaille> stockTailles;
+    private List<StockTaille> stockTailles = new ArrayList<>();
 }
